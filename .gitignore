@@ -1,0 +1,13 @@
+.DS_Store
+Thumbs.db
+
+node_modules/
+*.log
+
+outputs/
+dist/
+tmp/
+temp/
+
+.env
+.env.*

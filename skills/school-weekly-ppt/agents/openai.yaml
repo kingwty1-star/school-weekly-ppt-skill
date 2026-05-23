@@ -1,0 +1,4 @@
+interface:
+  display_name: "School Weekly PPT"
+  short_description: "Turn a Markdown school weekly report into a blue technical PPT."
+  default_prompt: "Use $school-weekly-ppt to create a blue PowerPoint from this Markdown school weekly report."
