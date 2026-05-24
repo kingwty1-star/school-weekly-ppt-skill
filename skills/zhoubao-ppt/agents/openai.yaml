@@ -1,0 +1,5 @@
+interface:
+  display_name: "周报ppt"
+  short_description: "从文档生成PPT大纲与答辩视觉预览"
+  brand_color: "#1F5F99"
+  default_prompt: "Use $zhoubao-ppt to read this paper, save a source-grounded ppt_outline.md, and optionally generate a formal defense-style PPT preview."
