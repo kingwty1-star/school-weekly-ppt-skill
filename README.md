@@ -1,25 +1,14 @@
-# Zhoubao PPT Skill
+# School Weekly PPT Skill
 
-`zhoubao-ppt` is a Codex skill for turning an uploaded paper, report, thesis section, weekly report, or technical document into:
+`school-weekly-ppt` is a Codex skill for turning a Markdown school weekly report into a blue, technical PowerPoint learning-report deck.
 
-- a source-grounded `ppt_outline.md`
-- an optional graduation-defense style PPT visual preview
+It is designed for weekly academic or engineering study reports where the input is a `.md` file and the output should be a polished `.pptx` with:
 
-It is designed for academic and engineering presentation workflows where the user wants content fidelity first and slide design second.
-
-## What It Does
-
-`zhoubao-ppt` supports two connected tasks:
-
-1. Read the source document and create a roughly 10-page Markdown PPT outline saved as `ppt_outline.md`.
-2. Generate a formal, professional, academic visual proposal from the outline as page previews or a thumbnail contact sheet.
-
-The skill is strict about:
-
-- using only the uploaded or provided source
-- marking missing details as `原文未明确说明`
-- avoiding external references unless the user explicitly asks
-- keeping the visual system suitable for thesis defense or science and engineering reporting
+- 7-9 slide weekly-report structure.
+- Blue formal report style.
+- Emphasized key points instead of equal-weight note dumping.
+- Editable principle diagrams for formulas, variables, arrows, thresholds, shadows, and physical meaning.
+- Rendered slide previews for visual QA.
 
 ## Install
 
@@ -28,47 +17,53 @@ Use Codex's built-in skill installer:
 ```bash
 python ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
   --repo kingwty1-star/school-weekly-ppt-skill \
-  --path skills/zhoubao-ppt
+  --path skills/school-weekly-ppt
 ```
 
-On Windows:
+On Windows, the installer path is usually:
 
 ```powershell
 python "$env:USERPROFILE\.codex\skills\.system\skill-installer\scripts\install-skill-from-github.py" `
   --repo kingwty1-star/school-weekly-ppt-skill `
-  --path skills/zhoubao-ppt
+  --path skills/school-weekly-ppt
 ```
 
-Restart Codex after installation so the skill can be discovered.
+Restart Codex after installing so the skill is discovered.
 
 ## Use
 
-Examples:
+Invoke the skill in Codex:
 
 ```text
-使用 $zhoubao-ppt，读取这篇论文并生成 ppt_outline.md，不要在对话框展开完整大纲。
+使用 $school-weekly-ppt，根据 notes/inbox/本周学习周报.md 制作汇报 PPT
 ```
 
-```text
-Use $zhoubao-ppt to read this technical document, save a source-grounded ppt_outline.md, and then create a formal defense-style PPT preview.
-```
+Or:
 
 ```text
-使用 $zhoubao-ppt，根据这份毕业答辩 PPT 大纲直接生成整套页面预览图，只输出视觉结果。
+Use $school-weekly-ppt to create a blue PowerPoint from this Markdown school weekly report.
 ```
 
 ## Repository Layout
 
 ```text
 skills/
-  zhoubao-ppt/
+  school-weekly-ppt/
     SKILL.md
     agents/openai.yaml
-    references/outline-spec.md
     references/visual-style.md
+    scripts/build_school_weekly_ppt.mjs
 ```
 
-Install from `skills/zhoubao-ppt` when using the GitHub skill installer.
+The skill itself lives under `skills/school-weekly-ppt`, which is the path used by the Codex GitHub skill installer.
+
+## Requirements
+
+- Codex with the Presentations/PPTX capability available.
+- Node.js runtime available to Codex.
+- A Markdown weekly report as input.
+
+The included script uses the local Presentations artifact-tool runtime to generate an editable `.pptx` and slide previews.
 
 ## License
 
